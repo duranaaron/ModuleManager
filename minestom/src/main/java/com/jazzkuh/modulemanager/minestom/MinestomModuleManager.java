@@ -6,8 +6,8 @@ import com.jazzkuh.modulemanager.minestom.handlers.commands.CommandComponentHand
 import com.jazzkuh.modulemanager.minestom.handlers.listeners.ListenerComponentHandler;
 import com.jazzkuh.modulemanager.minestom.handlers.tasks.TaskComponentHandler;
 import lombok.Getter;
+import net.minestom.server.event.EventListener;
 
-import java.util.EventListener;
 import java.util.logging.Logger;
 
 public final class MinestomModuleManager<P extends IMinestomServer> extends ModuleManager {

@@ -5,15 +5,15 @@ import com.jazzkuh.modulemanager.common.modules.components.IComponentHandler;
 import com.jazzkuh.modulemanager.minestom.MinestomModuleManager;
 import net.minestom.server.event.EventListener;
 
-public final class ListenerComponentHandler implements IComponentHandler<EventListener<?>> {
+public final class ListenerComponentHandler implements IComponentHandler<EventListener> {
 
     @Override
-    public void onLoad(ModuleManager manager, EventListener<?> component) {
+    public void onLoad(ModuleManager manager, EventListener component) {
         //DO NOTHING
     }
 
     @Override
-    public void onEnable(ModuleManager manager, EventListener<?> component) {
+    public void onEnable(ModuleManager manager, EventListener component) {
         if (!(manager instanceof MinestomModuleManager<?> minestomModuleManager))
             return;
 
@@ -21,7 +21,7 @@ public final class ListenerComponentHandler implements IComponentHandler<EventLi
     }
 
     @Override
-    public void onDisable(ModuleManager manager, EventListener<?> component) {
+    public void onDisable(ModuleManager manager, EventListener component) {
         if (!(manager instanceof MinestomModuleManager<?> velocityModuleManager))
             return;
 
