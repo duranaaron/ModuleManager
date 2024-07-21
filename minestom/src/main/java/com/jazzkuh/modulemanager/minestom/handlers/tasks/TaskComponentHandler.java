@@ -30,7 +30,7 @@ public final class TaskComponentHandler implements IComponentHandler<Runnable> {
         }
 
         TemporalUnit timeType = dynTask.timeType().toChronoUnit();
-        TaskSchedule repeating = dynTask.repeating() ? TaskSchedule.immediate() :
+        TaskSchedule repeating = !dynTask.repeating() ? TaskSchedule.immediate() :
                 TaskSchedule.duration(dynTask.period(), timeType);
 
         Task task = minestomModuleManager.getPlugin().getMinecraftServer().getSchedulerManager()
