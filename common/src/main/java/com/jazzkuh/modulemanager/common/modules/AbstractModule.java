@@ -20,7 +20,7 @@ public abstract class AbstractModule<M extends ModuleManager> {
         this.owningManager = owningManager;
         this.registry = owningManager.getComponentRegistry();
         this.components = new ArrayList<>();
-        this.logger = LoggerFactory.getLogger(getClass());
+        this.logger = LoggerFactory.getLogger(getClass().getSimpleName());
     }
 
     public final void load() {
