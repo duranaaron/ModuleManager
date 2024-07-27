@@ -11,7 +11,7 @@ import com.jazzkuh.modulemanager.common.ModuleManager;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import java.util.logging.Logger;
+import org.slf4j.Logger;
 
 public final class SpigotModuleManager<P extends JavaPlugin> extends ModuleManager {
 

@@ -9,12 +9,12 @@ import com.jazzkuh.modulemanager.minestom.handlers.tasks.SteppingTaskComponentHa
 import com.jazzkuh.modulemanager.minestom.handlers.tasks.TaskComponentHandler;
 import lombok.Getter;
 import net.minestom.server.event.EventListener;
-
-import java.util.logging.Logger;
+import org.slf4j.Logger;
 
 public final class MinestomModuleManager<P extends IMinestomServer> extends ModuleManager {
 
-    @Getter private final P plugin;
+    @Getter
+    private final P plugin;
 
     public MinestomModuleManager(P plugin, Logger logger) {
         super(logger);

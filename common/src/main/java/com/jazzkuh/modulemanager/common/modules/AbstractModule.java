@@ -6,7 +6,8 @@ import com.jazzkuh.modulemanager.common.modules.components.ComponentRegistry;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public abstract class AbstractModule<M extends ModuleManager> {
     @Getter private boolean enabled;
@@ -19,7 +20,7 @@ public abstract class AbstractModule<M extends ModuleManager> {
         this.owningManager = owningManager;
         this.registry = owningManager.getComponentRegistry();
         this.components = new ArrayList<>();
-        this.logger = Logger.getLogger(getClass().getSimpleName());
+        this.logger = LoggerFactory.getLogger(getClass());
     }
 
     public final void load() {

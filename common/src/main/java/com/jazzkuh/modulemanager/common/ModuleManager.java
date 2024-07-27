@@ -4,13 +4,12 @@ import lombok.Getter;
 import com.jazzkuh.modulemanager.common.loader.ModuleFinder;
 import com.jazzkuh.modulemanager.common.modules.AbstractModule;
 import com.jazzkuh.modulemanager.common.modules.components.ComponentRegistry;
+import org.slf4j.Logger;
 
 import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.Map;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 @Getter
 public class ModuleManager {
@@ -66,7 +65,7 @@ public class ModuleManager {
             try {
                 module.load();
             } catch (Throwable throwable) {
-                logger.log(Level.SEVERE, throwable, throwable::getMessage);
+                logger.error(String.valueOf(throwable));
             }
         }
     }
@@ -80,7 +79,7 @@ public class ModuleManager {
             try {
                 module.enable();
             } catch (Throwable throwable) {
-                logger.log(Level.SEVERE, throwable, throwable::getMessage);
+                logger.error(String.valueOf(throwable));
             }
         }
     }
@@ -97,7 +96,7 @@ public class ModuleManager {
             try {
                 module.disable();
             } catch (Throwable throwable) {
-                logger.log(Level.SEVERE, throwable, throwable::getMessage);
+                logger.error(String.valueOf(throwable));
             }
         }
     }

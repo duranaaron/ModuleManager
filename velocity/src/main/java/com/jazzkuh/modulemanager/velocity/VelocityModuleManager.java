@@ -8,7 +8,7 @@ import com.jazzkuh.modulemanager.velocity.handlers.tasks.TaskComponentHandler;
 import lombok.Getter;
 import com.jazzkuh.modulemanager.common.ModuleManager;
 
-import java.util.logging.Logger;
+import org.slf4j.Logger;
 
 public final class VelocityModuleManager<P extends IVelocityPlugin> extends ModuleManager {
 

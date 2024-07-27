@@ -9,7 +9,7 @@ import lombok.Getter;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
 import java.util.TimerTask;
-import java.util.logging.Logger;
+import org.slf4j.Logger;
 
 public final class JDAModuleManager<I extends IDiscordBot> extends ModuleManager {
 

@@ -35,8 +35,7 @@ public final class SteppingTaskComponentHandler implements IComponentHandler<ISt
         this.registeredTasks.put(iSteppingTask, bukkitTask);
         this.totalMsPerTickMax += iSteppingTask.getMaxMsPerTick();
 
-        moduleManager.getLogger().log(Level.INFO, () -> "Registered SteppingTask " + iSteppingTask.getClass()
-                .getSimpleName() + ". Total MS-per-tick: " + this.totalMsPerTickMax + ".");
+        moduleManager.getLogger().info("Registered SteppingTask " + iSteppingTask.getClass().getSimpleName() + ". Total MS-per-tick: " + this.totalMsPerTickMax + ".");
     }
 
     @Override
