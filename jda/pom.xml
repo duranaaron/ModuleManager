@@ -40,9 +40,9 @@
         </dependency>
 
         <dependency>
-            <groupId>com.jazzkuh.commandlib</groupId>
+            <groupId>com.github.Jazzkuh.CommandLibrary</groupId>
             <artifactId>jda</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <version>cdacd53e13</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>
