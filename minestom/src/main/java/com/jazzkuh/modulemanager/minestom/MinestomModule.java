@@ -8,8 +8,8 @@ public abstract class MinestomModule<P extends IMinestomServer> extends Abstract
         super(owningManager);
     }
 
-    public P getPlugin() {
-        return getOwningManager().getPlugin();
+    public P getServer() {
+        return getOwningManager().getServer();
     }
 
 }

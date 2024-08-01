@@ -17,7 +17,7 @@ public final class CommandComponentHandler implements IComponentHandler<Annotati
         if (!(manager instanceof MinestomModuleManager<?> minestomModuleManager))
             return;
 
-        component.register(minestomModuleManager.getPlugin().getMinecraftServer().getCommandManager());
+        component.register(minestomModuleManager.getServer().getMinecraftServer().getCommandManager());
     }
 
     @Override

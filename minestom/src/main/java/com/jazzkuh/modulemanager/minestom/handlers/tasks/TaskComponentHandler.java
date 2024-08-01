@@ -33,7 +33,7 @@ public final class TaskComponentHandler implements IComponentHandler<Runnable> {
         TaskSchedule repeating = !dynTask.repeating() ? TaskSchedule.immediate() :
                 TaskSchedule.duration(dynTask.period(), timeType);
 
-        Task task = minestomModuleManager.getPlugin().getMinecraftServer().getSchedulerManager()
+        Task task = minestomModuleManager.getServer().getMinecraftServer().getSchedulerManager()
                 .scheduleTask(component, TaskSchedule.duration(dynTask.delay(), timeType), repeating);
         tasks.put(component, task);
     }

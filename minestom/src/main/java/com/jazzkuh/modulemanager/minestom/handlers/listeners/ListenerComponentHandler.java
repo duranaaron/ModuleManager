@@ -17,7 +17,7 @@ public final class ListenerComponentHandler implements IComponentHandler<EventLi
         if (!(manager instanceof MinestomModuleManager<?> minestomModuleManager))
             return;
 
-        minestomModuleManager.getPlugin().getMinecraftServer().getGlobalEventHandler().addListener(component);
+        minestomModuleManager.getServer().getMinecraftServer().getGlobalEventHandler().addListener(component);
     }
 
     @Override
@@ -25,7 +25,7 @@ public final class ListenerComponentHandler implements IComponentHandler<EventLi
         if (!(manager instanceof MinestomModuleManager<?> velocityModuleManager))
             return;
 
-        velocityModuleManager.getPlugin().getMinecraftServer().getGlobalEventHandler()
+        velocityModuleManager.getServer().getMinecraftServer().getGlobalEventHandler()
                 .removeListener(component);
     }
 }

@@ -11,14 +11,14 @@ import lombok.Getter;
 import net.minestom.server.event.EventListener;
 import org.slf4j.Logger;
 
-public final class MinestomModuleManager<P extends IMinestomServer> extends ModuleManager {
+public final class MinestomModuleManager<S extends IMinestomServer> extends ModuleManager {
 
     @Getter
-    private final P plugin;
+    private final S server;
 
-    public MinestomModuleManager(P plugin, Logger logger) {
+    public MinestomModuleManager(S server, Logger logger) {
         super(logger);
-        this.plugin = plugin;
+        this.server = server;
 
         getComponentRegistry().registerComponentHandler(EventListener.class, new ListenerComponentHandler());
         getComponentRegistry().registerComponentHandler(Runnable.class, new TaskComponentHandler());

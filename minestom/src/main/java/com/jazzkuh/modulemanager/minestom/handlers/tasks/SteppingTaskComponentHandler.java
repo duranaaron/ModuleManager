@@ -32,7 +32,7 @@ public final class SteppingTaskComponentHandler implements IComponentHandler<ISt
         if (stepInfo == null) throw new IllegalStateException("SteppingTask " + iSteppingTask.getClass().getName() + " does not have a StepInfo annotation");
 
         SteppingTask steppingTask = new SteppingTask(iSteppingTask);
-        Task task = minestomModuleManager.getPlugin().getMinecraftServer().getSchedulerManager()
+        Task task = minestomModuleManager.getServer().getMinecraftServer().getSchedulerManager()
                 .scheduleTask(steppingTask, TaskSchedule.duration(stepInfo.pollDelay(), ChronoUnit.MILLIS), TaskSchedule.duration(stepInfo.pollPeriod(), ChronoUnit.MILLIS));
         this.registeredTasks.put(iSteppingTask, task);
         this.totalMsPerTickMax += iSteppingTask.getMaxMsPerTick();
