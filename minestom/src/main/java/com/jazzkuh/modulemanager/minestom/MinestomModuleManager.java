@@ -11,7 +11,7 @@ import lombok.Getter;
 import net.minestom.server.event.EventListener;
 import org.slf4j.Logger;
 
-public final class MinestomModuleManager<S extends IMinestomServer> extends ModuleManager {
+public final class MinestomModuleManager<S extends IMinestomPlatform> extends ModuleManager {
 
     @Getter
     private final S server;
