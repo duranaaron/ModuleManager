@@ -11,4 +11,5 @@ import java.lang.annotation.Target;
 @Target(ElementType.METHOD)
 public @interface Listen {
     ConnectionState connectionState() default ConnectionState.PLAY;
+    int priority() default 0;
 }

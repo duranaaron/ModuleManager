@@ -1,13 +1,18 @@
 package com.jazzkuh.modulemanager.minestom.handlers.listeners;
 
+import net.minestom.server.MinecraftServer;
 import net.minestom.server.event.Event;
+import net.minestom.server.event.EventNode;
 import net.minestom.server.event.GlobalEventHandler;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.util.UUID;
 
 public interface Listener {
-    default void register(GlobalEventHandler globalEventHandler) {
+    int DEFAULT_PRIORITY = Integer.MAX_VALUE / 2;
+
+    default void register() {
         Method[] methods = this.getClass().getDeclaredMethods();
         for (Method method : methods) {
             if (!method.isAnnotationPresent(Listen.class)) continue;
@@ -18,13 +23,20 @@ public interface Listener {
             }
 
             Class<?> registeredEvent = paramTypes[0];
-            globalEventHandler.addListener(registeredEvent.asSubclass(Event.class), event -> {
+
+            GlobalEventHandler globalEventHandler = MinecraftServer.getGlobalEventHandler();
+            EventNode<Event> eventNode = EventNode.all(UUID.randomUUID().toString());
+            eventNode.setPriority(DEFAULT_PRIORITY - method.getAnnotation(Listen.class).priority());
+
+            eventNode.addListener(registeredEvent.asSubclass(Event.class), event -> {
                 try {
                     method.invoke(this, event);
                 } catch (IllegalAccessException | InvocationTargetException e) {
                     throw new RuntimeException(e);
                 }
             });
+
+            globalEventHandler.addChild(eventNode);
         }
     }
 }

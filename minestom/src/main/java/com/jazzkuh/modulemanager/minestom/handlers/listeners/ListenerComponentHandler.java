@@ -18,7 +18,7 @@ public final class ListenerComponentHandler implements IComponentHandler<Listene
         if (!(manager instanceof MinestomModuleManager<?> minestomModuleManager))
             return;
 
-        component.register(MinecraftServer.getGlobalEventHandler());
+        component.register();
     }
 
     @Override
