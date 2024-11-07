@@ -13,9 +13,10 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import org.slf4j.Logger;
 
+@Getter
 public final class SpigotModuleManager<P extends JavaPlugin> extends ModuleManager {
 
-    @Getter private final P plugin;
+    private final P plugin;
 
     public SpigotModuleManager(P plugin, Logger logger) {
         super(logger);
@@ -23,8 +24,10 @@ public final class SpigotModuleManager<P extends JavaPlugin> extends ModuleManag
 
         getComponentRegistry().registerComponentHandler(Listener.class, new ListenerComponentHandler());
         getComponentRegistry().registerComponentHandler(Runnable.class, new TaskComponentHandler());
-        getComponentRegistry().registerComponentHandler(AnnotationCommand.class, new CommandComponentHandler());
         getComponentRegistry().registerComponentHandler(ISteppingTask.class, new SteppingTaskComponentHandler());
 
+        try {
+            getComponentRegistry().registerComponentHandler(AnnotationCommand.class, new CommandComponentHandler());
+        } catch (Exception ignored) {}
     }
 }
