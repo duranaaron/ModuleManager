@@ -4,6 +4,7 @@ import com.jazzkuh.modulemanager.common.ModuleManager;
 import lombok.RequiredArgsConstructor;
 
 import java.lang.annotation.Annotation;
+import java.lang.annotation.Retention;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
