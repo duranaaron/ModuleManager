@@ -14,6 +14,7 @@ public final class MinestomModuleManager<S extends IMinestomPlatform> extends Mo
 
     private final S server;
 
+
     public MinestomModuleManager(S server, Logger logger) {
         super(logger);
         this.server = server;
