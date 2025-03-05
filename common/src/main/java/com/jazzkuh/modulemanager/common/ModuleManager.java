@@ -23,6 +23,7 @@ public class ModuleManager {
 
     private final Logger logger;
     private State state;
+    private boolean debug;
 
     @Getter protected ComponentRegistry componentRegistry;
 
@@ -33,6 +34,7 @@ public class ModuleManager {
         this.state = State.IDLE;
         this.modules = new LinkedHashMap<>();
         this.componentRegistry = new ComponentRegistry(this);
+        this.debug = false;
     }
 
     public void prepare(AbstractModule<?> module) {
@@ -107,5 +109,9 @@ public class ModuleManager {
             throw new IllegalArgumentException("Module is not registered");
 
         return clazz.cast(module);
+    }
+
+    public void debug(boolean debug) {
+        this.debug = debug;
     }
 }
